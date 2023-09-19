@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>数据代理</title>
+        <script type="text/javascript" src="../js/vue.js"></script>
+        <style>
+            *{
+                margin-top: 30px;
+            }
+            .demo1{
+                height: 80px;
+                background-color: aqua;
+            }
+            .box1{
+                background-color: chocolate;
+                padding: 5px;
+            }
+            .box2{
+                background-color: chocolate;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+       <!-- 准备一个容器 -->
+       <div id="root">
+        姓：<input type="text" v-model="firstName"> <br/><br/>
+        名：<input type="text" v-model="lastName"> <br/><br/>
+        全名：<span>{{fullName}}</span>
+       </div>
+
+    </body>
+
+    <script type="text/javascript">
+        Vue.config.productionTip=false
+        const vm=new Vue({
+            el:'#root',
+            data:{
+                firstName:'张',
+                lastName:'三'
+            },
+            computed:{
+                fullName:{
+                    get(){
+                      console.log('被调用了')
+                      return this.firstName+'-'+this.lastName
+                    },
+                    set(value){
+                        console.log('set',value)
+                        const arr=value.split('-')
+                        this.firstName=arr[0]
+                        this.lastName=arr[1]
+                        
+                    }
+                }
+            }
+            
+        })
+    </script>
+</html>
