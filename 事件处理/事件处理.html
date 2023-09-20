@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>数据代理</title>
+        <script type="text/javascript" src="../js/vue.js"></script>
+        <style>
+            *{
+                margin-top: 30px;
+            }
+            .demo1{
+                height: 80px;
+                background-color: aqua;
+            }
+            .box1{
+                background-color: chocolate;
+                padding: 5px;
+            }
+            .box2{
+                background-color: chocolate;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>sS
+       <!-- 准备一个容器 -->
+       <div id="root">
+        <h3>欢迎参加{{name}}百年校庆！</h3>
+        <button @click="showInfo">点我提示信息！！！！！</button>
+
+           <div class="demo1" @click="showInfo">
+            <button @click.stop="showInfo">点我提示信息</button>
+           </div>
+           <button @click.once="showInfo">点我提示信息</button>
+           <div class="box1" @click="showMassage(1)">
+            div1
+           </div>
+           <div class="box2" @click="showMassage(2)">
+            div2
+           </div>
+       </div>
+
+    </body>
+
+    <script type="text/javascript">
+        Vue.config.productionTip=false
+        new Vue({
+            el:'#root',
+            data:{
+                name:'东北大学'
+            },
+            methods:{
+                showInfo(){
+                    alert('同学您好！')
+                }
+                
+            }
+        })
+    </script>
+</html>

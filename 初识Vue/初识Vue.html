@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>初识Vue</title>
+        <script type="text/javascript" src="../js/vue.js"></script>
+    </head>
+    <body>
+        <!-- 准备好一个容器 -->
+        <div id="root">
+            <h1>hello,{{name}}</h1>
+        </div>
+        <script type="text/javascript">
+            //创建实例
+            new Vue({
+                el:'#root',//el指定vue为谁服务，值通常为css选择器字符串
+                data:{//data中用于存储数据，提供el所指定的容器去使用，值先写成一个对象
+                    name:'尚硅谷123'
+                }
+            })
+
+        </script>
+    </body>
+</html>
